@@ -1,0 +1,379 @@
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+@font-face {
+    font-family: FuturaStd-Book;
+    src: url(Futura_Std_Book.otf);
+  }
+  
+
+body{
+background-image: url('../Images/LOGIN-BACKGROUND-IMAGE.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 0% 4.2rem;
+height: calc(100vh - 67px);
+font-family: 'Numans', sans-serif;
+}
+
+
+/* //////////////////////////////// */
+         /* NAVBAR CSS */
+/* //////////////////////////////// */
+
+.MasterContainer {
+    background-color: rgb(0, 0, 0);
+    font-family: FuturaStd-Book;
+    text-transform: uppercase;
+
+  }
+  
+  .navbar {
+    display: flex;
+    position: relative;
+    top: -2px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.781);
+    padding: 0 1rem !important;
+    height: 67px;
+  }
+  
+  .BrandFMA {
+    font-size: 1.5rem;
+    margin: 0 .5rem;
+    height: 4.2rem;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .BrandFMA img {
+    height: 36px;
+  }
+  
+  .BrandFMA a {
+    text-decoration: none;
+    color: rgba(255, 0, 25, 0.705);
+    margin-right: 10px;
+    margin: 0 0 0 8px;
+    transition: color .5s ;
+  
+  }
+  
+  .BrandFMA:hover{
+    background-color: rgba(116, 112, 112, 0.288);
+    /* transition: background-color .5s ; */
+  
+  }
+  
+  .BrandFMA:hover a{
+    text-decoration: none;
+    color: rgb(255, 0, 25);
+    text-shadow: 2px 5px 8px rgb(0, 0, 0);
+    transition: color 1s, text-shadow 1s ;
+  }
+
+  .clickeable-area {
+    position:absolute; 
+    width:100%;
+    height:100%;
+    top:0;
+    left: 0;
+    z-index: 1;
+    /* fixes overlap error in IE7/8, 
+       make sure you have an empty gif */
+    /* background-image: url('empty.gif'); */
+  }
+  
+  .navbar-links {
+    height: 100%;
+  }
+  
+  .navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links li {
+    list-style: none;
+    align-items: center;
+  }
+  
+  .navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: rgba(255, 0, 25, 0.705);
+    padding: 1.3rem 1rem;
+    transition: color .5s ;
+  }
+  
+  .navbar-links li:hover  a{
+    background-color: rgba(116, 112, 112, 0.288);
+    color: rgb(255, 0, 25);
+    text-shadow: 2px 5px 8px rgb(0, 0, 0);
+    transition: all 1s ;
+  
+  }
+  /* HEIGHT SIDE LINE ANIMATION FOR NAVLINKS */
+  
+  /* BRAND ANIMATION */
+  .vlBRAND {
+    border-left: 1.9px solid #DC3545;
+    height: 0rem;
+    transition: height 0.1s, padding 1s ;
+  }
+  
+  .vlhrparent:hover .vlBRAND {
+    border-left: 1.9px solid #DC3545;
+    height: 100%;
+    transition: height 0.5s;
+  }
+  
+  /* NAV ANIMATION  */
+  .vl {
+    border-left: 1.9px solid #DC3545;
+    height: 0rem;
+    margin-bottom: 2px;
+    transition: height 0.1s, padding 1s;
+  }
+  
+  .vlhrparent:hover .vl, .vlhovered{
+    border-left: 1.9px solid #DC3545;
+    height: 95%;
+    transition: height 0.5s;
+  }
+  
+/* //////////////////////////////// */
+  
+  /* WIDTH BOTTOM LINE ANIMATION FOR NAVLINKS */
+  .navbar .hrBRAND {
+    margin: 0;
+    padding: 0;
+    width: 0rem;
+    height: 3px;
+    box-shadow: 0px 0px 0px black;
+    background-color: #DC3545;
+  }
+  
+  .vlhrparent:hover .hrBRAND {
+    width: 100%;
+    height: 3px;
+    background-color: #DC3545;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;  
+    box-shadow: 0px 10px 10px black;
+    transition: height 0.5s , width 0.5s ;
+  }
+  
+  .navbar hr {
+    margin: 0;
+    padding: 0;
+    width: 0rem;
+    height: 3px;
+    box-shadow: 0px 0px 0px black;
+    background-color: #DC3545;
+  }
+  
+  .vlhrparent:hover hr {
+    width: 100%;
+    height: 3px;
+    background-color: #DC3545;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;  
+    box-shadow: 0px 10px 10px black;
+    transition: height 0.5s , width 0.5s ;
+  }
+  /* //////////////////////////////// */
+  .toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+  }
+  
+  .toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #DC3545;
+    border-radius: 10px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media (max-width: 700px) {
+    body {
+      margin: 0;
+    }
+
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      width: 100%;
+      padding: 0 !important;
+      
+    }
+  
+    .BrandFMA {
+      position: static;
+      margin: 0;    
+      width:100%;
+      padding: 0 0 0 1rem;
+      border-bottom: 2px solid black;
+      transition: all .5s;
+  
+    }
+  
+    .BrandFMA:hover {
+      background-color: none;
+      border-bottom: 2px solid #DC3545;
+      transition: all .5s;
+  
+    }
+
+    .clickeable-area {
+        display: none;
+    }
+  
+    .toggle-button {
+      display: flex;
+    }
+  
+    .navbar-links {
+      display: none;
+      width: 100%;
+    }
+  
+    .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+      padding: 0 10px;
+    }
+  
+    .navbar-links ul li {
+      text-align: center;
+      align-items: stretch;
+      justify-content: center;
+      padding: 0;
+    }
+  
+    .navbar-links ul li .Adiv {
+      width: 100%;
+      border-top: 1px solid #000000;
+      border-bottom: 1px solid #000000;
+      transition: all .25s;
+    }
+  
+    .navbar-links ul li .Adiv:hover {
+      width: 100%;
+      border-top: 1px solid #DC3545;
+      border-bottom: 1px solid #DC3545;
+      border-radius: 5px;
+      transition: all .5s;
+    }
+  
+    .navbar-links ul li a {
+      padding: 1rem;
+  
+    }
+    
+    .navbar-links.active {
+      display: flex;
+    }
+  
+    .padding-border-botom {
+      padding-bottom: 20px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    
+    }
+        
+    .vl {
+      display: none;
+    }
+    .vlBRAND {
+      display: none;
+    }
+    hr {
+      display: none;
+    }
+  
+    /* HAMPURGER TO X ANIMATION */
+    .toggle-button{
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: .5s ease-in-out;
+      -moz-transition: .5s ease-in-out;
+      -o-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+      cursor: pointer;
+    }
+    
+    .toggle-button span{
+      display: block;
+      position: absolute;
+      background: #d3531a;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-transition: .4s ease-in-out;
+      -moz-transition: .4s ease-in-out;
+      -o-transition: .4s ease-in-out;
+      transition: .4s ease-in-out;
+    }
+    
+    .toggle-button span:nth-child(1) {
+      top: 0px;
+    }
+    
+    .toggle-button span:nth-child(2) {
+      top: 9px;
+    }
+    
+    .toggle-button span:nth-child(3) {
+      top: 18px;
+    }
+    
+    .toggle-button.open span:nth-child(1) {
+      top: 9px;
+      -webkit-transform: rotate(135deg);
+      -moz-transform: rotate(135deg);
+      -o-transform: rotate(135deg);
+      transform: rotate(135deg);
+    }
+    
+    .toggle-button.open span:nth-child(2) {
+      opacity: 0;
+      left: -60px;
+    }
+    
+    .toggle-button.open span:nth-child(3) {
+      top: 9px;
+      -webkit-transform: rotate(-135deg);
+      -moz-transform: rotate(-135deg);
+      -o-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+    }
+    
+  }

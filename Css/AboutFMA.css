@@ -1,0 +1,152 @@
+header {
+    background-image: url('../Images/CAGE.jpg') !important;
+    background-position-y: -50px;
+}
+
+.about_main p {
+     margin: 0;
+     padding: 0;
+     font-size: 18px;
+}
+
+.about_main > div {
+    /* margin: 0 auto; */
+    height: 400px;
+    /* padding-top: 20px; */
+    font-size: 20px;
+}
+
+.first_div, .end_div {
+    height: fit-content !important;
+}
+
+.first_div {
+    background-color: #180101;
+    padding: 130px 80px;
+}
+.first_div div {
+    max-width: 60%;
+    margin: 0 auto;
+}
+h1 {
+    color: rgb(200, 46, 46) !important;
+    font-size: 45px !important;
+}
+
+h2 {
+    color: rgb(200, 46, 46) !important;
+}
+
+.start_quote {
+    color: white;
+    font-size: 25px !important;
+}
+
+.even_odd_divs {
+    padding: 50px;
+    position: relative;
+}
+
+.even_odd_divs .fa-caret-down {
+    font-size: 100px;
+    position: absolute;
+    bottom: -58px;
+    right: 50%;
+    transform: translate(50%);
+    z-index: 1;
+}
+
+.even_odd_divs:nth-child(2) {
+    color: #424A4F;
+}
+.even_odd_divs:nth-child(even) {
+    background-color: #ffffff;
+}
+.even_odd_divs:nth-child(even) .fa-caret-down {
+    color: #ffffff;
+}
+
+.even_odd_divs:nth-child(even) .Img_about {
+    float: right;
+    margin-left: 30px;
+}
+
+.even_odd_divs:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+.even_odd_divs:nth-child(odd) .fa-caret-down {
+    color: #f1f1f1;
+}
+
+.even_odd_divs:nth-child(odd) .Img_about {
+    float: left;
+    margin-right: 30px;
+
+}
+
+.end_quote {
+    text-align: center;
+    width: 66%;
+    margin: 0 auto;
+    padding: 20px 40px;
+    background-color: #eedfdf !important;
+    border: 3px solid #ecb8b8;
+    color: #424A4F;
+}
+
+.quote_caret {
+    color: #eedfdf !important;
+
+}
+
+.end_div a {
+    color: rgb(200, 46, 46) !important;
+}
+
+.end_div a:hover {
+    color: rgb(255, 0, 0) !important;
+    text-decoration: underline !important;
+}
+    
+.Img_about {
+    width: 400px;
+    height: 300px;
+}
+.founder_name {
+    font-weight: 600;
+    color: #424A4F;
+}
+.picFounder {
+    margin-top: 40px;
+    width: 100px;
+    border-radius: 60%;
+}
+
+@media (max-width: 1120px) {
+    header {
+    background-position-y: 0px;
+}
+
+}
+
+@media (max-width: 1010px) {
+    header {
+    background-position-y: 30px;
+}
+
+}
+
+@media (max-width: 650px) {
+    header {
+    background-position-x: 49%;
+}
+
+}
+
+@media (max-width: 565px) {
+    header {
+        background-image: url('../Images/RIKSON.png') !important;
+    }
+
+}

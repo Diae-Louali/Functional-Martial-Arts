@@ -1,0 +1,125 @@
+
+/* .container{
+height: 100%;
+align-content: center;
+} */
+
+.card{
+height: 433px;
+margin-top: auto;
+margin-bottom: auto;
+width: fit-content;
+max-width: 500px;
+background-color: rgba(0,0,0,0.5) !important;
+box-shadow: 0px 13px 15px 10px  #000000be;
+}
+
+.iconbg {
+    background-image: linear-gradient(rgb(141, 14, 14), rgb(236, 11, 11),rgb(141, 14, 14));
+}
+
+.card-header h3{
+    font-family: FuturaStd-Book;
+    color: white;
+}
+#ENTERLOGIN {
+    color: #5acc3d;
+    /* font-weight: bold; */
+    width: 270px;
+    text-align: center;
+    margin: 35px auto 0 auto;
+    clear: both;
+}
+
+#Acessdenied {
+    border: 1px solid #ffc107; 
+    color: #ffc107;
+    width: 270px;
+    text-align: center;
+    margin: 25px auto 0 auto;
+    clear: both;   
+}
+
+.input-group-prepend span{
+width: 42px;
+background-color: rgb(243, 69, 26);
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+#Icon-field{
+  right: 7px;
+  top: 11px;
+  z-index: 1050;
+}
+
+#EYEICON{
+  font-size: 17px;
+  color: rgba(58, 57, 57, 0.5);
+}
+
+.eye-icon-gray {
+  color: rgb(58, 57, 57) !important; 
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+width: 100px;
+
+}
+
+.login_btn:hover{
+font-weight: bold;
+font-size: 16.5px;
+border: 1px solid rgb(250, 15, 15);
+}
+
+.login_btn:active{
+color: rgb(56, 50, 50) !important;
+background-image: linear-gradient(rgb(141, 14, 14), rgb(236, 11, 11),rgb(141, 14, 14)) !important;
+border: none;
+font-weight: 600;
+
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+
+.error-alert{
+  height: fit-content;
+  top:135%;
+  right: 15%;
+  z-index: 10;
+}
+
+.error-alert span{
+  left: 30%;
+}
+
+.error-alert .fas{
+  color: #F8D7DA;
+  font-size: 25px;
+  bottom:14px;
+}
