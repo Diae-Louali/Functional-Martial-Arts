@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require('MasterPHPFMA.php');
 gestsOnly();
 
@@ -37,55 +37,7 @@ if (isset($_POST['submitRegister'])) {
 </head>
 <body>
     <head> 
-        <!-- <div id='HEADERNavbar' class='MasterContainer'>
-            <nav id='navbar' class='navbar'>
-                <div id='BRANDcontainer' class=' BrandFMA d-flex flex-column vlhrparent justify-content-center'>
-                    <div id='MaindivBRAND' class='d-flex align-items-center h-100'>
-                        <div class='vlBRAND pr-xl-5 pr-lg-4 pr-md-3 pr-sm-2'></div>
-                        <img src='Images\FunctionalMartialArtsLOGO.png' class='rounded-circle' alt=''>
-                        <a class='pr-xl-5 pr-lg-4 pr-md-3 pr-sm-2' href='HomeFMA.php'>FMA</a>
-                        <div class='vlBRAND'></div>
-                    </div>
-                    <div id='HrDivBRAND' class='d-flex justify-content-center position-relative'>
-                        <hr class='hrBRAND position-absolute'>
-                    </div>                                 
-                </div>
-                <a href='#/' id='HAMBURGER' class='toggle-button mt-2'>
-                    <span class='bar'></span>
-                    <span class='bar'></span>
-                    <span class='bar'></span>
-                </a>
-                <div id='NAV-LINKS' class='navbar-links'>
-                    <ul>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='ArticleFMA.php'> Article</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='AboutFMA.php'> About</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='ContactFMA.php'> Contact</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='LoginFMA.php'> Sign in</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='RegisterFMA.php'> Register</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>-->           
+         
         <?php include('Includes\Header\NormalNav.php'); ?>
 
     </head>
@@ -171,7 +123,7 @@ if (isset($_POST['submitRegister'])) {
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous'></script>
 <script src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js'></script>
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script src="Javascript\RegisterLogin.Js"></script>
+<script src="Javascript\RegisterLogin.js"></script>
 
 
 </body>

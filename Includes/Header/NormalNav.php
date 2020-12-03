@@ -46,7 +46,7 @@
                     <li id='dropContainerID' class='d-flex vlhrparent'>
                         <div class='vl vlfordropdown'></div>
                         <div class='Adiv d-flex flex-column dropdown show'>
-                            <a href='#/' id='dropToggleID' class='dropdown-toggleCustom' role='button' ><img style='width:27px;' class='rounded-circle bg-white navpfp' src='<?php echo "uploads/" . $_SESSION["Connected-UserPfp"];?>'>
+                            <a href='#/' id='dropToggleID' class='dropdown-toggleCustom' role='button' ><img style='width:27px; height: 27px;' class='rounded-circle bg-white navpfp' src='<?php echo "uploads/" . $_SESSION["Connected-UserPfp"];?>'>
                                 <?php echo $_SESSION["Connected-UserUsername"]; ?><i class='Arrow-Icon fas fa-chevron-down'></i>
                             </a><hr id='hrForMainContainer' class='align-self-center hrForMainContClass'>           
                             <ul id='dropmenuID' class='Adiv d-flex flex-column dropdown-menuCUSTOM'>

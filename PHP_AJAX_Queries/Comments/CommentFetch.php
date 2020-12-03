@@ -33,10 +33,10 @@ foreach($result1 as $row)
             </div>  
             <p class='".$row['deleted_parent']."'>".$row['comment_content']."</p>               
             <form class='comment_buttons replyAlign comment_form".$row['comment_ID']." w-100 position-relative' action='' method='post'>
-                <input type='hidden' id='user_role' value='".$row['Role']."'>
-                <input type='hidden' id='deleted_parent' name='deleted_parent' value='".$row['deleted_parent']."'>
-                <input type='hidden' id='user_comment_ID' value='".$row['user_ID']."'>
-                <button type='button' data-toggle='collapse' data-target='#replyComment".$row['comment_ID']."' class='commentMenu gray reply-btn' name='reply_comment' id='reply'><i id='commentIcon' class='gray fa fa-reply'></i>Reply</button>
+                <input type='hidden' class='user_role' value='".$row['Role']."'>
+                <input type='hidden' class='deleted_parent' name='deleted_parent' value='".$row['deleted_parent']."'>
+                <input type='hidden' class='user_comment_ID' value='".$row['user_ID']."'>
+                <button type='button' data-toggle='collapse' data-target='#replyComment".$row['comment_ID']."' class='commentMenu gray reply-btn reply_comment' name='reply_comment'><i id='commentIcon' class='gray fa fa-reply'></i>Reply</button>
 
                 <i class='fas fa-ellipsis-v d-none'></i>
                 <div class='button_settings'>
@@ -52,6 +52,7 @@ foreach($result1 as $row)
             <form class='clearfix sendReply comment_form".$row['comment_ID']."' action='' method='post' onsubmit='return post_reply(".$row['comment_ID'].")'>
                 <input type='hidden' class='parentID' name='parent_ID' value='".$row['comment_ID']."'>
                 <input type='hidden' class='userID' value='1' name='user_ID'>
+                <input type='hidden' class='articleID' value=".$row['article_ID']." name='article_ID'>
                 <textarea  type='text' name='comment_content' cols='20' rows='3' class='reply_content comment_text form-control' placeholder='What are your thoughts ?'></textarea>
                 <input type='submit' class='btn login_btn send_reply".$row['comment_ID']."' value='Reply' name='submitReply'>
             </form>
@@ -110,12 +111,12 @@ foreach($result1 as $row)
                     <form class='update".$row['comment_ID']."' method='post' action='' onsubmit='return do_update(".$row['comment_ID'].");'>
                         <div class='modal-body'>
 
-                            <textarea id='updated_comment' class='comment_text w-100' type='text' name='updated_comment'>".$row['comment_content']."</textarea>
+                            <textarea class='updated_comment comment_text w-100' type='text' name='updated_comment'>".$row['comment_content']."</textarea>
 
                         </div>
                         <div class='card-footer modal-footer border-danger py-2'>
                             <input type='hidden' class='userID' value='8' name='user_ID'>
-                            <input type='hidden' id='get_comment_ID' name='getComment' value='commentID". $row['comment_ID'] ."'>
+                            <input type='hidden' class='get_comment_ID' name='getComment' value='commentID". $row['comment_ID'] ."'>
                             <input type='hidden' id='commentID". $row['comment_ID'] ."' value='".$row['comment_ID']."' name='comment_ID'>
                             <button type='button' class='btn btn-blue-grey waves-effect waves-light modal_btn' data-dismiss='modal'>Cancel</button>
                             <input type='submit' class='btn btn-danger waves-effect waves-light modal_btn' value='Update' name='updateComment'>
@@ -169,10 +170,10 @@ function get_reply_comment($conn, $parent_id = 0, $borderleft = 0)
             </div>  
             <p class='".$row['deleted_parent']."'>".$row['comment_content']."</p>
             <form class='comment_buttons replyAlign comment_form".$row['comment_ID']." w-100 position-relative' action='' method='post'>
-                <input type='hidden' id='user_role' value='".$row['Role']."'>
-                <input type='hidden' id='deleted_parent' value='".$row['deleted_parent']."'>
-                <input type='hidden' id='user_comment_ID' value='".$row['user_ID']."'>
-                <button type='button' data-toggle='collapse' data-target='#replyComment".$row['comment_ID']."' class='commentMenu gray reply-btn' name='reply_comment' id='reply'><i id='commentIcon' class='gray fa fa-reply'></i>Reply</button>
+                <input type='hidden' class='user_role' value='".$row['Role']."'>
+                <input type='hidden' class='deleted_parent' value='".$row['deleted_parent']."'>
+                <input type='hidden' class='user_comment_ID' value='".$row['user_ID']."'>
+                <button type='button' data-toggle='collapse' data-target='#replyComment".$row['comment_ID']."' class='commentMenu gray reply-btn reply_comment' name='reply_comment'><i id='commentIcon' class='gray fa fa-reply'></i>Reply</button>
                 
                 <i class='fas fa-ellipsis-v d-none'></i>
                 <div class='button_settings'>                   
@@ -188,6 +189,7 @@ function get_reply_comment($conn, $parent_id = 0, $borderleft = 0)
             <form class='clearfix sendReply comment_form".$row['comment_ID']."' action='' method='post' onsubmit='return post_reply(".$row['comment_ID'].")'>
                 <input type='hidden' class='parentID' name='parent_ID' value='". $row['comment_ID'] ."'>
                 <input type='hidden' class='userID' value='8' name='user_ID'>
+                <input type='hidden' class='articleID' value=".$row['article_ID']." name='article_ID'>
                 <textarea type='text' name='comment_content' cols='20' rows='3' class='reply_content comment_text form-control' placeholder='What are your thoughts ?'></textarea>
                 <input type='submit' class='btn login_btn send_reply".$row['comment_ID']."' value='Reply' name='submitReply'>
             </form>
@@ -245,12 +247,12 @@ function get_reply_comment($conn, $parent_id = 0, $borderleft = 0)
                     <form class='update".$row['comment_ID']."' method='post' action='' onsubmit='return do_update(".$row['comment_ID'].");'>
                         <div class='modal-body'>
 
-                            <textarea id='updated_comment' class='comment_text w-100' type='text' name='updated_comment'>".$row['comment_content']."</textarea>
+                            <textarea class='updated_comment comment_text w-100' type='text' name='updated_comment'>".$row['comment_content']."</textarea>
 
                         </div>
                         <div class='card-footer modal-footer border-danger py-2'>
                             <input type='hidden' class='userID' value='8' name='user_ID'>
-                            <input type='hidden' id='get_comment_ID' name='getComment' value='commentID". $row['comment_ID'] ."'>
+                            <input type='hidden' class='get_comment_ID' name='getComment' value='commentID". $row['comment_ID'] ."'>
                             <input type='hidden' id='commentID". $row['comment_ID'] ."' value='".$row['comment_ID']."' name='comment_ID'>
                             <button type='button' class='btn btn-blue-grey waves-effect waves-light modal_btn' data-dismiss='modal'>Cancel</button>
                             <input type='submit' class='btn btn-danger waves-effect waves-light modal_btn' value='Update' name='updateComment'>

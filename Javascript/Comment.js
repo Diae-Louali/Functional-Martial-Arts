@@ -2,15 +2,6 @@ var comment_count= 0;
         
 load_comment();
 
-// function do_logout(){
-    
-//     $.ajax({
-//         url:'logout.php',
-//         method:'POST',
-//         success:function(){
-//         }
-//     });
-// }
 function check_session(){
     $.ajax({
         url:'PHP_AJAX_Queries/Comments/sessions.php',
@@ -24,21 +15,6 @@ function check_session(){
                 $("#links").css({"display":"none"});
                 $(".userID").val(data['Connected-UserID']);
                 $('.comment_buttons').css({'display':'inline-block'});
-                // if (data['Connected-UserRole'] == 'Admin') {
-                //     $('.to_show').css({'display':'inline-block'});
-                // } else if ( data['Connected-UserRole'] =='User'){
-                //     $('.comment_buttons').each( function(){
-                //         var userID = $(this).find('#user_comment_ID').val();
-                //         console.log(userID);
-                //         if(data['Connected-UserID']==userID){
-                //             $(this).find('.to_show').css({'display':'inline-block'});
-                //         }else{
-                //             $(this).find('.to_show').css({'display':'none'});
-                //         }
-                        
-                //     })
-                // } 
-                
                 
             } else {
                     $('.comment_buttons').css({'display':'none'});
@@ -47,41 +23,6 @@ function check_session(){
         }
     });
 }
-
-//  function do_login() {
-//         var username=$("#username").val();
-//         var password=$("#password").val();
-//         if(username!="" && password!="")
-//         {
-//         $.ajax
-//         ({
-//         type:'post',
-//         data:{
-//         do_login:"do_login",
-//         username:username,
-//         password:password
-//         },
-//         success:function(response) {
-//             if(response.status=="success") {
-//                 $("#exampleModal").modal("hide");
-//                 $(".modal-backdrop").css({"height":"0%", "width":"0%"});
-//                 load_comment();
-//             } else {
-//                 $("#error").css({"display":"block"});
-//             }
-            
-//         }
-//         });
-//         }
-
-//         else
-//         {
-//         alert("Please Fill All The Details");
-//         }
-
-//         return false;
-// }
-
 
 function load_comment() {
     var articleId=window.location.href.split('=')[1];
@@ -104,16 +45,8 @@ function load_comment() {
             $('#comment_count').html(comment_count);
         })
 
-
-        // CLICK BORDER TO TRIGGER EVENT
-        // $('.comment-details').click(function(e){
-        //     if(e.offsetX <= parseInt($(this).css('borderLeftWidth'))){
-        //         PUT CODE TO BE EXECUTED ON BORDER CLICK HERE
-        //     }
-        // });
-
         $('.comment_buttons').each( function(){
-            var user_role = $(this).find('#user_role').val();
+            var user_role = $(this).find('.user_role').val();
             var deleted_parent = $(this).find('#deleted_parent').val();
         
             if(user_role=='admin'){
@@ -143,25 +76,6 @@ function load_comment() {
                 $(this).find('.timeago').css({"display":"none"});
             }
 
-            // if ($(this).width() < 330) {
-            //     $(this).find('.button_settings').addClass('responsiveSettings');
-            //     $(this).css({"background":"blue"});
-
-            // } else {
-            //     $(this).find('.button_settings').removeClass('responsiveSettings');
-            //     $(this).css({"background":"red"});
-            // }
-            // function outputsize() {
-            //     width.value = textbox.offsetWidth
-            //     height.value = textbox.offsetHeight
-            //    }
-            //    outputsize()
-                
-            //    new ResizeObserver(outputsize).observe(textbox)
-                
-
-
-
         });                    
         $('.vertical-line').click(function(e){
             $(this).parent().toggleClass('collapsed-comment');  
@@ -175,7 +89,7 @@ function load_comment() {
 function post_reply(commentID){
     event.preventDefault();
     var form_data = $('.comment_form'+commentID).serialize();
-    console.log(form_data);
+    console.log('Comment.js post_reply Function => ', form_data);
     $.ajax({
         url:"PHP_AJAX_Queries/Comments/CommentAdd.php",
         method:"POST",

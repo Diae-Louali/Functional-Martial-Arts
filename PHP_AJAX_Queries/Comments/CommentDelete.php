@@ -15,7 +15,7 @@ $statement = $conn->prepare($selectQuery);
 $statement->execute(array($_POST["comment_ID"]));
 $Children = $statement->fetchAll();
 
-if (!count($Children)) { 
+if (!count($Children)) { // IF THE COMMENT HAS NO CHILD
     // SELECT PARENT_ID OF THE $_POST COMMENT
     $selectQuery = "SELECT parent_comment_ID FROM comments_and_replies WHERE comment_ID = ? ";
     $statement = $conn->prepare($selectQuery);
@@ -25,7 +25,7 @@ if (!count($Children)) {
     if ($parent_id!=0) { // IF THE PARENT_ID OF THE $_POST COMMENT IS NOT EQUAL TO 0 (meaning it is the child of another comment) DO THIS :
         
         // SELECT ALL COMMENTS THAT : 
-        // 1- HAVE THE SAME PARENT ID OF THE $_POST COMMENT
+        // 1- HAVE THE SAME PARENT ID OF THE $_POST COMMENT (ARE SIBLINGS)
         // 2- HAVE A DELETE STATE OF 0 (HAVE NOT BEEN REMOVED FROM DISPLAY)
         $selectQuery = "SELECT * FROM comments_and_replies WHERE parent_comment_ID = ? AND deleted_parent=0";
         $statement = $conn->prepare($selectQuery);
@@ -33,11 +33,11 @@ if (!count($Children)) {
         $unremovedSiblings = $statement->fetchAll();
         $count = $statement->rowCount();
         
-        if ($count == 1) { // IF THERE IS ONLY ONE COMMENT WHICH MEETS THOSE CONDITIONS (IT MEANS THAT IT IS THE THE $_POST COMMENT, THEREFORE THERE ARE NO UNREMOVED SIBLINGS)   
-            // RUN RECURSIVE FUNCTION TO DELETE ALL CHILDLESS REMOVED COMMENTS 
+        if ($count == 1) { // IF THERE IS ONLY ONE COMMENT WHICH MEETS THOSE CONDITIONS (IT MEANS THAT IT IS THE $_POST COMMENT, THEREFORE THERE ARE NO UNREMOVED SIBLINGS)   
+            // RUN RECURSIVE FUNCTION TO DELETE ALL REMOVED COMMENTS THAT HAVE NO CHILDREN 
             delete_parents($parent_id['parent_comment_ID']); 
 
-            ////DELETE THE COMMENT THAT MATCHED THE ID GIVEN BY POST:
+            ////DELETE THE COMMENT THE $_POST COMMENT:
             delete_postComment($_POST["comment_ID"]);
 
 
@@ -49,7 +49,8 @@ if (!count($Children)) {
         delete_postComment($_POST["comment_ID"]);
     }
 
-}else{
+}else{// IF THE COMMENT HAS AT LEAST ONE CHILD
+
     $sql = "UPDATE comments_and_replies SET deleted_parent=?, comment_updated_at=? WHERE comment_ID=?";
     $req = $conn->prepare($sql);
     $req->execute(array(1, $date, $_POST["comment_ID"]));
@@ -80,7 +81,7 @@ function delete_parents($parentId_Param) {
     if ($result[0]['deleted_parent']==1) { // CHECK IF PARENT HAS BEEN REMOVED
         $new_parent_id=$result[0]['parent_comment_ID']; // SAVE THAT PARENT'S PARENT_ID 
 
-        // SELECT ALL COMMENTS THAT ARE UNREMOVED SUBLINGS MEANING: 
+        // SELECT ALL COMMENTS THAT ARE UNREMOVED SIBLINGS MEANING: 
         // 1- HAVE THE SAME PARENT_ID OF THE CURRENT 'TO BE DELETED' COMMENT
         // 2- HAVE A DELETE STATE OF 0 (HAVE NOT BEEN REMOVED FROM DISPLAY)
         $query = "SELECT * FROM comments_and_replies WHERE parent_comment_ID = ? AND deleted_parent=0";

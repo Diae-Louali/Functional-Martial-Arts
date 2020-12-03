@@ -310,7 +310,7 @@ if (isset($_SESSION['Added'])) {
 
 
 // echo $added;
-echo $edited;
+// echo $edited;
 // echo $deleted;
 
 ?>
@@ -1286,7 +1286,7 @@ textAreas.forEach(element => {
 
 </script>
 <!-- <script src="Javascript\General.js"></script> -->
-<script src="Javascript\Admin.Js"></script>
+<script src="Javascript\Admin.js"></script>
 <script type="text/javascript">
 
     ///////// SWITCH TAB MANAGE/ADD //////////////

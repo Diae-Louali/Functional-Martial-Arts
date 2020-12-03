@@ -36,10 +36,11 @@
         <div class="footer-section contact-form">
             <h2>Contact us</h2>
             <br>
-            <form action="#/" method="post">
-                <input type="email" name="footer-email" class="footer-text-input contact-input" placeholder="Your email adress...">
-                <textarea name="message" class="footer-text-input contact-input" placeholder="Your message..." rows="3"></textarea>
-                <button type="button" class="btn contact-btn"> <!-- this should be type SUBMIT -->
+            <form action="#/" method="post" id="contact_form" class="position-relative">
+                <small id="contact_error_state"></small>
+                <input id="email_contact" type="email" name="footer-email" class="footer-text-input contact-input" placeholder="Your email adress..." required>
+                <textarea id="message_contact" name="message" class="footer-text-input contact-input" placeholder="Your message..." rows="3" required></textarea>
+                <button type="submit" class="btn contact-btn" >
                     <i class="fa fa-paper-plane"></i> Send
                 </button>
             </form>
@@ -50,3 +51,39 @@
         <span class="">&copy; Designed by Diae Louali | 3wa Academy Student.</span>
     </div>
 </div>
+
+<script>
+ const contactEmail = document.querySelector('#email_contact');
+ const contactTxtArea = document.querySelector('#message_contact');
+ const contactErrorMsg = document.querySelector('#contact_error_state');
+ const form = document.querySelector('#contact_form');
+
+        [contactEmail, contactTxtArea].forEach(inputs => {
+            inputs.addEventListener('focus', () => {
+            contactErrorMsg.innerHTML = '';
+        });
+        });
+
+        const fakeSubmitMessage = e =>  {
+            e.preventDefault();
+            if (contactEmail.value == '' || contactTxtArea.value == '') {
+                if (contactErrorMsg.classList.contains('text-success')) {
+                    contactErrorMsg.classList.remove('text-success');
+                }
+                contactErrorMsg.innerHTML = 'You need to fill in both fields.';
+                contactErrorMsg.classList.add('text-danger');
+            } else {
+                if (contactErrorMsg.classList.contains('text-danger')) {
+                    contactErrorMsg.classList.remove('text-danger');
+                }
+                contactErrorMsg.innerHTML ='Your message has been delivered!';
+                contactErrorMsg.classList.add('text-success');
+                contactEmail.value = '';
+                contactTxtArea.value = '';
+
+            }
+            
+        }
+        form.addEventListener('submit', fakeSubmitMessage);
+
+</script>

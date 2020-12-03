@@ -10,7 +10,6 @@ $comment_content = '';
 $childState='';
 
 
-
 if(empty($_POST["user_ID"]))
 {
  $error .= '<p class="text-danger">Login is required</p>';

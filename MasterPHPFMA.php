@@ -9,6 +9,12 @@ $conn = new PDO("mysql:host=$servername;dbname=FMA", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
+// if (isset($_SESSION['Connected-UserID'])) {
+//     echo '<pre>', print_r('you are connected', true) ,'</pre>';
+//     exit(0);
+// }else {
+//     echo '<pre>', print_r('you NOT are connected', true) ,'</pre>';
+// }
 
 function disconnect(){
     unset($_SESSION["Connected-UserID"]);
@@ -26,8 +32,11 @@ function disconnect(){
 
 function gestsOnly($redirect = "HomeFMA.php") {
     if (isset($_SESSION['Connected-UserID'])) {
+        // echo '<pre>', print_r('you are connected', true) ,'</pre>';
         header('Location:' . $redirect);
         exit(0);
+    }else {
+        // echo '<pre>', print_r('you NOT are connected', true) ,'</pre>';
     }
 }
 

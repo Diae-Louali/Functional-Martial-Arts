@@ -5,11 +5,6 @@
                 <div class=" justify-content-center card-header border-bottom border-danger card-header modal-header">
                     <h3 class="text-center modal-title">SIGN IN</h3>
                     <a href="#/" class="float-right mr-1 close" data-dismiss="modal"></a>
-                    <!-- <div class="d-flex justify-content-end social_icon">
-                        <span><i class="fab fa-facebook-square"></i></span>
-                        <span><i class="fab fa-google-plus-square"></i></span>
-                        <span><i class="fab fa-twitter-square"></i></span>
-                    </div> -->
                 </div>
                 <div class="card-body modal-body">
                     <form method="POST" action="" autocomplete="off" >

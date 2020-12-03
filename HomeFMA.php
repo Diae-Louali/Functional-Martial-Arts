@@ -19,30 +19,10 @@ if (isset($_POST["submitlogin"])){
     } else {
         $AccessDenied= "<br>"."<p id='Acessdenied'> Your login information is incorrect."."<br>"." Please try again !</p>";
     }
-//
-    // $req = $conn-> prepare("select * from user where Username = ? and Password = ?");
-    // $req->execute(array($_POST["UsernameInput"],$_POST["PasswordInput"]));
-    // $data = $req->fetch();
-    // if ($req->rowCount()== 1) {
-    //     $_SESSION["Connected-UserID"]       = $data["Id"];
-    //     $_SESSION["Connected-UserFname"]    = $data["Name"];
-    //     $_SESSION["Connected-UserLastname"] = $data["Lastname"];
-    //     $_SESSION["Connected-UserAge"]      = $data["Age"];
-    //     $_SESSION["Connected-UserAddress"]  = $data["Address"];
-    //     $_SESSION["Connected-UserEmail"]    = $data["Email"];
-    //     $_SESSION["Connected-UserUsername"] = $data["Username"];
-    //     $_SESSION["Connected-UserPassword"] = $data["Password"];
-    //     $_SESSION["Connected-UserRole"]     = $data["Role"];
-    //     $_SESSION["Connected-UserPfp"]      = $data["Image_pfp"];
-    // } else {
-    //     $AccessDenied= "<br>"."<p id='Acessdenied'> Your login information is incorrect."."<br>"." Please try again !</p>";
-    // }
-//
 }
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +63,7 @@ if (isset($_POST["submitlogin"])){
             
             <?php foreach ($popularPosts as $key => $popularPost) {?>
                 <div class="post"> 
-                    <img src="<?php echo 'Uploads/' . $popularPost['Image']; ?>" href="#/" class="slider-image">
+                    <img src="<?php echo 'Uploads/' . $popularPost['Image']; ?>" href="ArticleFMA.php?id=<?php echo $popularPost['Id'];?>" class="slider-image">
                     <div class="post-info">
                         <h5><a href="ArticleFMA.php?id=<?php echo $popularPost['Id'];?>" class="text-decoration-none post-slider-title"><?php echo $popularPost['Title'];?></a></h5>
                         <i class="far fa-user">  <?php echo $popularPost['Username'];?> </i>
@@ -162,7 +142,6 @@ if (isset($_POST["submitlogin"])){
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="Javascript\General.js"></script>
-
+<script  src="Javascript\General.js"></script> 
 </body>
 </html>

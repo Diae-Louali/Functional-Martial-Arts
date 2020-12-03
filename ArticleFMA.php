@@ -97,7 +97,7 @@ if (isset($_GET['id'])) {
                                     <span id="comment_message"></span>
                                     <input type="hidden" class="parentID" value="0" name="parent_ID">
                                     <input type="hidden" class="userID" value="" name="user_ID">
-                                    <input type="hidden" id="articleID" value="<?php echo $Article['Id'];?>" name="article_ID">
+                                    <input type="hidden" class="articleID" value="<?php echo $Article['Id'];?>" name="article_ID">
                                     <textarea id="comment_content" type="text" name="comment_content" cols="40" rows="5" class="comment_text form-control" placeholder="What are your thoughts ?"></textarea>
                                     <input type="submit" class='btn contact-btn' id="submit_comment" value="Submit comment" name="submitComment">
                                 </form>
@@ -241,7 +241,7 @@ $(document).ready(function() {
 
     if (($(".article-title").length) && IdCheck) {
         $([document.documentElement, document.body]).animate({
-            scrollTop: $(window).height() - 20
+            scrollTop: $(window).height() - 50
         }, 500);         
         }
     <?php } ?> 

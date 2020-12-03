@@ -9,7 +9,18 @@ $pfp="Icon\iconfinder-pfp.svg";
 
 
 if (isset($_POST['edit-user-button'])) {
+    echo '<pre>', print_r($_POST, true) ,'</pre>';
     $existingEmail = selectOne('user', ['Email'=> $_POST['Email']]);
+    $i=0;
+    foreach ($_POST as $postElement) {
+        if (!empty($postElement)) {
+            $i++;
+        }
+    }
+    if ($i <= 1) {
+        echo 'Action Denied. You cannot submit an empty form.To edit your profile information, make sure atleast one field is filled.';
+        return;
+    } 
     // echo '<pre>', print_r($existingEmail, true) ,'</pre>';
     if ((is_array($existingEmail) < 1) || ((is_array($existingEmail) > 0) && ($existingEmail['Id'] === $_POST['Id']))){
         $id = $_POST['Id'];        
@@ -18,14 +29,14 @@ if (isset($_POST['edit-user-button'])) {
         unsetEmptyVars();
         // echo '<pre>', print_r($_POST, true) ,'</pre>';
         $user_ID = update('user', $id, $_POST);
-        if (isset($_POST['Name'])) {  $_SESSION['Connected-UserFname']= $_POST['Name']; }
-        if (isset($_POST['Lastname'])) {  $_SESSION['Connected-UserLastname']= $_POST['Lastname']; }
-        if (isset($_POST['Age'])) {  $_SESSION['Connected-UserAge']= $_POST['Age'] ; }
-        if (isset($_POST['Address'])) {  $_SESSION['Connected-UserAddress']= $_POST['Address']; }
-        if (isset($_POST['Email'])) {  $_SESSION['Connected-UserEmail']= $_POST['Email']; }
-        if (isset($_POST['Username'])) {  $_SESSION['Connected-UserUsername']= $_POST['Username']; }
-        if (isset($_POST['Password'])) {  $_SESSION['Connected-UserPassword']= $_POST['Password']; }
-        if (isset($_POST['Role'])) {  $_SESSION['Connected-UserRole']= $_POST['Role']; }
+        if (isset($_POST['Name']))      {  $_SESSION['Connected-UserFname'] = $_POST['Name']; }
+        if (isset($_POST['Lastname']))  {  $_SESSION['Connected-UserLastname'] = $_POST['Lastname']; }
+        if (isset($_POST['Age']))       {  $_SESSION['Connected-UserAge'] = $_POST['Age'] ; }
+        if (isset($_POST['Address']))   {  $_SESSION['Connected-UserAddress'] = $_POST['Address']; }
+        if (isset($_POST['Email']))     {  $_SESSION['Connected-UserEmail'] = $_POST['Email']; }
+        if (isset($_POST['Username']))  {  $_SESSION['Connected-UserUsername'] = $_POST['Username']; }
+        if (isset($_POST['Password']))  {  $_SESSION['Connected-UserPassword'] = $_POST['Password']; }
+        if (isset($_POST['Role']))      {  $_SESSION['Connected-UserRole'] = $_POST['Role']; }
         $_SESSION['Message']="<div class='alert alert-success w-100 text-center px-0 mt-4 mb-1 position-absolute' role='alert' style='top:-19px;'>'Your Profile was updated successfully'</div>";
         $_SESSION['type'] = "profile";
         echo $_SESSION['type'];
@@ -183,7 +194,7 @@ if (isset($_SESSION['type'])) {
                     <button id="toggleEditProfile" class="text-center btn btn-sm editbutn"><i class="far fa-edit"></i> Edit</button>
                     <button id="canceleditID" class="d-flex justify-content-center align-items-center text-center btn btn-sm canceledit mt-2"><i class="fas fa-times"></i></button>
 
-                    <form class="form mt-3" action="ProfileFMA.php" method="post" id="registrationForm">
+                    <form class="form mt-3" action="ProfileFMA.php" method="post" id="editForm">
 
                         <button type="submit" name="edit-user-button" id="confirmeditID" class="text-center btn btn-sm confirmedit mt-2"><i class="fas fa-check"></i></button>
 
@@ -357,6 +368,7 @@ if (isset($_SESSION['type'])) {
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
 
-<script src="Javascript\Profile.Js"></script>
+<script src="Javascript\Profile.js"></script>
+
 </body>
 </html>

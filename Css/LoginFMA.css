@@ -1,36 +1,14 @@
 
-/* .container{
-height: 100%;
-align-content: center;
-} */
 
 .card{
     height: 370px;
-    /* margin: auto 0 auto 0 ; */
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
     background-color: rgba(0,0,0,0.5) !important;
     box-shadow: 0px 13px 15px 10px  #000000be;
     }
-    
-    /* .social_icon span{
-    font-size: 60px;
-    margin-left: 10px;
-    color: rgb(255, 65, 18);
-    }
-    
-    .social_icon span:hover{
-    color: white;
-    cursor: pointer;
-    }
-    
-    .social_icon{
-    position: absolute;
-    right: 20px;
-    top: -45px;
-    } */
-    
+        
     .iconbg {
         background-image: linear-gradient(rgb(141, 14, 14), rgb(236, 11, 11),rgb(141, 14, 14));
     }
@@ -41,7 +19,6 @@ align-content: center;
     }
     #ENTERLOGIN {
         color: #5acc3d;
-        /* font-weight: bold; */
         width: 270px;
         text-align: center;
         margin: 35px auto 0 auto;
@@ -55,8 +32,6 @@ align-content: center;
         text-align: center;
         margin: 25px auto 0 auto;
         clear: both;
-        
-        /* class=text-warning mt-4 px-1 text-center float-left border border-warning */
     }
     
     .input-group-prepend span{

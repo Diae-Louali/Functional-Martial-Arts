@@ -13,7 +13,7 @@ $fileType = $_FILES["filePFP"]["type"];
 
 $fileExtention= explode(".", $fileName);
 $LowerCasedActualExt= strtolower(end($fileExtention));
-$allowed= array("jpg","jpeg","svg","png","pdf",);
+$allowed= array("jpg","jpeg","svg","png","pdf");
 
 if (in_array($LowerCasedActualExt, $allowed)) {
     if($fileError === 0) {
