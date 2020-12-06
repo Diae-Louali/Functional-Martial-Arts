@@ -67,7 +67,7 @@ This blog is a CRUD project is my first introduction to the world of programming
    
 3. Import the fma.sql file from the project into your database.
 
-4. Open the project on your local server ( select in the local host menu blogHome.php ) .
+4. Open the project on your local server by navigating to this url (http://localhost/Functional-Martial-Arts/)
 
 
 <!-- CONTACT -->
