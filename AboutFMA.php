@@ -73,7 +73,7 @@ if (isset($_GET['id'])) {
         <i class="fas fa-caret-down"></i>
      </div>
      <div class="even_odd_divs">
-        <img src="Images\Carlos-Condit.jpg" alt="" class="Img_about">
+        <img src="Images\charlein-gracia-mqKKCsZgzXQ-unsplash.jpg" alt="" class="Img_about">
         <h2 class="mb-4 mt-4">Lorem, ipsum dolor.</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia explicabo 
         cumque aut necessitatibus reprehenderit architecto? Voluptatibus doloremque 
@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
         <i class="fas fa-caret-down"></i>
      </div>   
      <div class="even_odd_divs">
-        <img src="Images\Carlos-Condit.jpg" alt="" class="Img_about">
+        <img src="Images\jason-briscoe-HN_4K2diUWs-unsplash.jpg" alt="" class="Img_about">
         <h2 class="mb-4 mt-4">Lorem ipsum dolor sit.</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia explicabo 
         cumque aut necessitatibus reprehenderit architecto? Voluptatibus doloremque 
@@ -97,7 +97,7 @@ if (isset($_GET['id'])) {
         <i class="fas fa-caret-down"></i>
      </div>   
      <div class="even_odd_divs">
-        <img src="Images\Carlos-Condit.jpg" alt="" class="Img_about">
+        <img src="Images\thao-le-hoang-w29-TNxFaGg-unsplash.jpg" alt="" class="Img_about">
         <h2 class="mb-4 mt-4">Lorem, ipsum.</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia explicabo 
         cumque aut necessitatibus reprehenderit architecto? Voluptatibus doloremque 
@@ -108,7 +108,7 @@ if (isset($_GET['id'])) {
         <i class="fas fa-caret-down"></i>
      </div>   
      <div class="even_odd_divs">
-        <img src="Images\Carlos-Condit.jpg" alt="" class="Img_about">
+        <img src="Images\leslie-jones-urBiLDuUhMU-unsplash.jpg" alt="" class="Img_about">
         <h2 class="mb-4 mt-4">Lorem sit amet.</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia explicabo 
         cumque aut necessitatibus reprehenderit architecto? Voluptatibus doloremque 
@@ -119,7 +119,7 @@ if (isset($_GET['id'])) {
         <i class="fas fa-caret-down"></i>
      </div>   
      <div class="even_odd_divs">
-        <img src="Images\Carlos-Condit.jpg" alt="" class="Img_about">
+        <img src="Images\Muay+Thai.jpg" alt="" class="Img_about">
         <h2 class="mb-4 mt-4">Lorem ipsum dolor sit amet.</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia explicabo 
         cumque aut necessitatibus reprehenderit architecto? Voluptatibus doloremque 
