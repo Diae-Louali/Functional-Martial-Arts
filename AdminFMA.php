@@ -1140,7 +1140,7 @@ if (isset($_SESSION['Added'])) {
                                 </div>
                             </div>
 
-                            <button type="submit" name="edit-user-button" class="btn create-btn mt-3 float-right"> Create</button>
+                            <button type="submit" name="edit-user-button" class="btn create-btn mt-3 float-right"> Update</button>
                         </form>
                     </div>
                 </div>

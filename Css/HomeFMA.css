@@ -1171,6 +1171,7 @@ input:focus {
   border-radius: 60%;
   border: 1px solid #0000001e;
   transition: all 0.3s;
+  object-fit: cover;
 }
 
 .marginButton {

@@ -6,8 +6,13 @@ gestsOnly();
 $AccessDenied= "<br>"."<p id='ENTERLOGIN'> Enter your login information.</p>";
 
 if (isset($_POST["submitlogin"])){
+    // unset($_POST["submitlogin"]);
     $user = selectOne('user', ['Username' => $_POST['UsernameInput']]);
-    echo '<pre>', print_r($user, true) ,'</pre>';
+    // echo '<pre>', print_r([$_POST, $user], true) ,'</pre>';
+    // echo '<pre>', print_r(($_POST['UsernameInput'] === $user['Username']), true) ,'</pre>';
+    // echo $_POST['PasswordInput'];
+    // echo  $user['Password'];
+    echo password_verify($_POST['PasswordInput'], $user['Password']);
     if ($user && password_verify($_POST['PasswordInput'], $user['Password'])) {
         session_start();
         loginUser($user);
@@ -15,28 +20,6 @@ if (isset($_POST["submitlogin"])){
         $AccessDenied= "<br>"."<p id='Acessdenied'> Your login information is incorrect."."<br>"." Please try again !</p>";
     }
     
-//
-    // $req = $conn-> prepare("select * from user where Username = ? and Password = ?");
-    // $req->execute(array($_POST["UsernameInput"],$_POST["PasswordInput"]));
-    // $data = $req->fetch();
-    // if ($req->rowCount()== 1) {
-    //     session_start();
-    //     $_SESSION["Connected-UserID"]       = $data["Id"];
-    //     $_SESSION["Connected-UserFname"]    = $data["Name"];
-    //     $_SESSION["Connected-UserLastname"] = $data["Lastname"];
-    //     $_SESSION["Connected-UserAge"]      = $data["Age"];
-    //     $_SESSION["Connected-UserAddress"]  = $data["Address"];
-    //     $_SESSION["Connected-UserEmail"]    = $data["Email"];
-    //     $_SESSION["Connected-UserUsername"] = $data["Username"];
-    //     $_SESSION["Connected-UserPassword"] = $data["Password"];
-    //     $_SESSION["Connected-UserRole"]     = $data["Role"];
-    //     $_SESSION["Connected-UserPfp"]      = $data["Image_pfp"];
-    //     header("Location:HomeFMA.php");
-    //     exit();
-    // } else {
-    //     $AccessDenied= "<br>"."<p id='Acessdenied'> Your login information is incorrect."."<br>"." Please try again !</p>";
-    // }
-//
 }
 
 ?>
@@ -60,55 +43,6 @@ if (isset($_POST["submitlogin"])){
 </head>
 <body>
     <head>
-        <!-- <div id='HEADERNavbar' class='MasterContainer'>
-            <nav id='navbar' class='navbar'>
-                <div id='BRANDcontainer' class=' BrandFMA d-flex flex-column vlhrparent justify-content-center'>
-                    <div id='MaindivBRAND' class='d-flex align-items-center h-100'>
-                        <div class='vlBRAND pr-xl-5 pr-lg-4 pr-md-3 pr-sm-2'></div>
-                        <img src='Images\FunctionalMartialArtsLOGO.png' class='rounded-circle' alt=''>
-                        <a class='pr-xl-5 pr-lg-4 pr-md-3 pr-sm-2' href='HomeFMA.php'>FMA</a>
-                        <div class='vlBRAND'></div>
-                    </div>
-                    <div id='HrDivBRAND' class='d-flex justify-content-center position-relative'>
-                        <hr class='hrBRAND position-absolute'>
-                    </div>                                 
-                </div>
-                <a href='#/' id='HAMBURGER' class='toggle-button mt-2'>
-                    <span class='bar'></span>
-                    <span class='bar'></span>
-                    <span class='bar'></span>
-                </a>
-                <div id='NAV-LINKS' class='navbar-links'>
-                    <ul>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='ArticleFMA.php'> Article</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='AboutFMA.php'> About</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='ContactFMA.php'> Contact</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='LoginFMA.php'> Sign in</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                        <li class='d-flex vlhrparent'>
-                            <div class='vl'></div>
-                            <div class='Adiv d-flex flex-column'><a href='RegisterFMA.php'> Register</a><hr class='align-self-center'></div>
-                            <div class='vl pr-xl-4 pr-lg-3 pr-md-2'></div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>     -->
         <?php include("Includes\Header\NormalNav.php"); ?>
     </head>
 

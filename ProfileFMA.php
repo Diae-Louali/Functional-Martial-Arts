@@ -147,7 +147,7 @@ if (isset($_SESSION['type'])) {
                             <div id="preview" class="d-flex justify-content-center flex-column">
                                 <p class="mb-0">PFP preview :</p>
                                 <d id="error_upload" class="mx-auto mt-2 mb-3"></d>
-                                <img src="" width="0" height="0" id="modal-img-preview" class="mx-auto pfp_preview">
+                                <img src="" id="modal-img-preview" class="mx-auto pfp_preview">
                             </div>
                         </div>
                         <div class="card-footer modal-footer border-danger">
