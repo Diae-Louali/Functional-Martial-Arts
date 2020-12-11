@@ -1,9 +1,8 @@
 <?php
 
 require("../../MasterPHPFMA.php");
-
 if (empty($_POST['Article_Id'])) {
-    $_POST['Article_Id']= 28; // HARD CODED FOR NOW BUT NEEDS TO BECOME DYNAMIC AND SEND TO THE MOST RECENT OR TRENDING ARTICLE
+    $_POST['Article_Id']= 27; // HARD CODED FOR NOW BUT NEEDS TO BECOME DYNAMIC AND SEND TO THE MOST RECENT OR TRENDING ARTICLE
 };
 
 $query = "SELECT * FROM comments_and_replies AS c JOIN user AS u ON c.user_ID=u.Id 
@@ -27,7 +26,7 @@ foreach($result1 as $row)
             <div class='comment-info'>
                 <img src='uploads/".$row['Image_pfp']."' class='profile_pic'>  
                 <span class='comment-name'>".$row['Name']."</span>
-                <span class='admin_tag text-success'></span>
+                ".($row['Role'] === "Admin" ? "<span class='admin_tag'>".$row['Role']."</span>" : "" )."
                 <span class='gray comment-date'>• ".$row['comment_created_at']."</span>
                 <time class='gray comment-date timeago' title='Last Updated : ".$row['comment_updated_at']."'> • Last Updated : ".$row['comment_updated_at']."</time>
             </div>  
@@ -40,8 +39,10 @@ foreach($result1 as $row)
 
                 <i class='fas fa-ellipsis-v d-none'></i>
                 <div class='button_settings'>
+                    ".($_SESSION["Connected-UserID"] === $row['user_ID'] ? "       
                     <button type='button' data-toggle='modal' data-target='#update".$row['comment_ID']."' name='update' class=' to_show commentMenu gray reply-btn'><i class='far fa-edit'></i> Edit</button>
                     <button type='button' name='delete' class=' to_show commentMenu gray reply-btn' data-toggle='modal' data-target='#delete".$row['comment_ID']."'><i class='fas fa-trash-alt'></i> Delete</button>
+                    " : "" )."
                     <button type='button' name='report' class='to_show commentMenu gray reply-btn' data-toggle='modal' data-target='#report".$row['comment_ID']."'><i class='far fa-flag'></i> Report</button>
                 </div>
             </form>
@@ -54,7 +55,7 @@ foreach($result1 as $row)
                 <input type='hidden' class='userID' value='1' name='user_ID'>
                 <input type='hidden' class='articleID' value=".$row['article_ID']." name='article_ID'>
                 <textarea  type='text' name='comment_content' cols='20' rows='3' class='reply_content comment_text form-control' placeholder='What are your thoughts ?'></textarea>
-                <input type='submit' class='btn login_btn send_reply".$row['comment_ID']."' value='Reply' name='submitReply'>
+                <input type='submit' class='btn btn-primary btn-sm rounded send_reply font-weight-bold ".$row['comment_ID']."' value='SEND' name='submitReply'>
             </form>
             <span id='empty_comment' class='text-danger'></span>
         </div>
@@ -164,7 +165,7 @@ function get_reply_comment($conn, $parent_id = 0, $borderleft = 0)
             <div class='comment-info'>
                 <img src='uploads/".$row['Image_pfp']."' class='profile_pic'>  
                 <span class='comment-name'>".$row['Name']."</span>
-                <span class='admin_tag text-success'></span>
+                ".($row['Role'] === "Admin" ? "<span class='admin_tag'>".$row['Role']."</span>" : "" )."
                 <span class='gray comment-date'>• ".$row['comment_created_at']."</span>
                 <time class='gray comment-date timeago' title='Last Updated : ".$row['comment_updated_at']."'> • Last Updated : ".$row['comment_updated_at']."</time>
             </div>  
@@ -176,9 +177,11 @@ function get_reply_comment($conn, $parent_id = 0, $borderleft = 0)
                 <button type='button' data-toggle='collapse' data-target='#replyComment".$row['comment_ID']."' class='commentMenu gray reply-btn reply_comment' name='reply_comment'><i id='commentIcon' class='gray fa fa-reply'></i>Reply</button>
                 
                 <i class='fas fa-ellipsis-v d-none'></i>
-                <div class='button_settings'>                   
+                <div class='button_settings'>
+                    ".($_SESSION["Connected-UserID"] === $row['user_ID'] ? "       
                     <button type='button' data-toggle='modal' data-target='#update".$row['comment_ID']."' name='update' class='to_show commentMenu gray reply-btn'><i class='far fa-edit'></i> Edit</button>
                     <button type='button' name='delete' class='to_show commentMenu gray reply-btn' data-toggle='modal' data-target='#delete".$row['comment_ID']."'><i class='fas fa-trash-alt'></i> Delete</button>
+                    " : "" )."
                     <button type='button' name='report' class='to_show commentMenu gray reply-btn' data-toggle='modal' data-target='#report".$row['comment_ID']."'><i class='far fa-flag'></i> Report</button>
                 </div>
             </form>
@@ -191,7 +194,7 @@ function get_reply_comment($conn, $parent_id = 0, $borderleft = 0)
                 <input type='hidden' class='userID' value='8' name='user_ID'>
                 <input type='hidden' class='articleID' value=".$row['article_ID']." name='article_ID'>
                 <textarea type='text' name='comment_content' cols='20' rows='3' class='reply_content comment_text form-control' placeholder='What are your thoughts ?'></textarea>
-                <input type='submit' class='btn login_btn send_reply".$row['comment_ID']."' value='Reply' name='submitReply'>
+                <input type='submit' class='btn btn-primary btn-sm rounded send_reply font-weight-bold".$row['comment_ID']."' value='Reply' name='submitReply'>
             </form>
             <span id='empty_comment' class='text-danger'></span>
         </div>

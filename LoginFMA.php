@@ -8,12 +8,12 @@ $AccessDenied= "<br>"."<p id='ENTERLOGIN'> Enter your login information.</p>";
 if (isset($_POST["submitlogin"])){
     // unset($_POST["submitlogin"]);
     $user = selectOne('user', ['Username' => $_POST['UsernameInput']]);
-    // echo '<pre>', print_r([$_POST, $user], true) ,'</pre>';
+    echo '<pre>', print_r([$_POST, $user], true) ,'</pre>';
     // echo '<pre>', print_r(($_POST['UsernameInput'] === $user['Username']), true) ,'</pre>';
     // echo $_POST['PasswordInput'];
-    // echo  $user['Password'];
-    echo password_verify($_POST['PasswordInput'], $user['Password']);
-    if ($user && password_verify($_POST['PasswordInput'], $user['Password'])) {
+    // echo  trim($user['Password']), "  ". $_POST['PasswordInput'];
+    // echo password_verify($_POST['PasswordInput'], trim($user['Password']));
+    if ($user && password_verify($_POST['PasswordInput'], trim($user['Password']))) {
         session_start();
         loginUser($user);
     } else {

@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
     $Article = $popularPosts[$AuthorId];
     $_SESSION['Article_ID']= $Article['Id'];
 } else {
-    $Article = $popularPosts[3];
+    $Article = $popularPosts[1];
     $_SESSION['Article_ID']= $Article['Id'];
 }
 
@@ -107,7 +107,7 @@ if (isset($_GET['id'])) {
                             
                                 <div id="links" class='links text-dark'>
                                     <p style="padding-bottom:10px; margin-bottom: 0px;">To leave a comment, please <a data-toggle='modal' data-dismiss='modal' data-target='#exampleModal' href='#'> Sign In</a> .</p> 
-                                    <p style="padding-top:10px; margin-top:0px;">Don't have an account? <a id='signIn' href='#' data-toggle='modal' data-dismiss='modal' data-target='#exampleModal2'> Sign Up</a> .</p> 
+                                    <p style="padding-top:10px; margin-top:0px;">Don't have an account? <a href='RegisterFMA.php'> Sign Up</a> .</p> 
                                 </div>
                             
 
