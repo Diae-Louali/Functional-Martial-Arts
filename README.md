@@ -23,9 +23,9 @@ Native Php and Javascript Blog project
 <!-- Demo -->
 ## Demo
 
-To see the demo, visit this link : < unavailable at this time >
+To see the demo, visit this link : https://youtu.be/K1-dhZuCdNA
 
-<a href="< Link >">![thumbnail](Image.PNG)
+<a href="https://youtu.be/K1-dhZuCdNA"> ![thumbnail](https://user-images.githubusercontent.com/68733422/101989870-84c87e80-3ca3-11eb-9ff4-43910446905d.jpg)
 </a>
 
 
@@ -33,7 +33,7 @@ To see the demo, visit this link : < unavailable at this time >
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This blog is a CRUD project is my first introduction to the world of programming. The website and all of it's data is dynamically loaded with a Php backend, MySQL database and Javascript/JQuery Front end as well as an extensive focus on CSS and UI design. 
+This Blog is a CRUD application that served as my first introduction to the world of programming. The website and all of it's data is dynamically loaded with a Php backend, MySQL database and Javascript/JQuery Front end as well as an extensive focus on CSS and UI design. 
 
 **The Blog contains** :  
 
